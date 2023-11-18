@@ -7,11 +7,11 @@ Nathan Ko, Walter Wong
 
 Power outages are a large concern to functioning societies, with massive implications for daily life, commerce, and infrastructure. This report focuses on a comprehensive data cleaning and analysis of a major power outage dataset covering the continental U.S. from January 2000 to July 2016. The dataset, provided by the Laboratory for Advancing Sustainable Critical Infrastructure (LASCI), offers a unique opportunity to explore the patterns and potential causes of power outages. We can examine the distribution of outages and their correlation with demographic and geographical variables to come up with a more targeted approach to maintenance and develeopment of infrastructure in the future. Analyzing this data, there can be responsive changes taken in order to minimize the devastating effects of power outages. 
 
-Question: Are power outages worse during the summer? 
+**Question:** Are power outages worse during the summer? 
 
-Null hypothesis: The summer months (7, 8, 9) have the same average number of customers affected as the rest of the year.
+**Null hypothesis:** The summer months (7, 8, 9) have the same average number of customers affected as the rest of the year.
 
-Alternate hypothesis: The summer months have greater power outages than rest of the year.
+**Alternate hypothesis:** The summer months have greater power outages than rest of the year.
 
 The cleaned dataframe has 54 features and 1534 observations.
 
