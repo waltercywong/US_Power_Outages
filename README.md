@@ -37,10 +37,6 @@ In the original data in the excel file, the 5 rows are unwanted as they are just
 At this point, the data being loaded has all the columns and observations in the excel file data. However, the columns ``OUTAGE.START.DATE`` and ``OUTAGE.START.TIME`` can be combined as the first always has a time of "00:00:00". The same is true for the restoration date and time. We combined these columns into ``OUTAGE.START`` and ``OUTAGE.RESTORATION``, dropping the original 4.
 
 
-
-
-<iframe src="assets/plot_univar_1.html" width=800 height=600 frameBorder=0></iframe>
-
 |   OBS |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
 |------:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|----------------:|:-------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|------------:|------------:|------------:|--------------:|------------:|------------:|------------:|--------------:|-------------:|-------------:|-------------:|----------------:|----------------:|----------------:|------------------:|---------------:|---------------:|---------------:|-------------------:|-----------------:|-----------------:|--------------------:|---------------:|----------------:|--------------:|----------------:|-------------:|---------------:|------------:|---------------:|------------:|---------------:|----------------:|-------------:|-----------:|----------------:|-------------------:|:--------------------|:---------------------|
 |     1 |   2011 |       7 | Minnesota    | MN            | MRO           | East North Central |            -0.3 | normal             | severe weather     | nan                     |               nan |              3060 |              nan |                70000 |       11.6  |        9.18 |        6.81 |          9.28 |     2332915 |     2114774 |     2113291 |       6562520 |      35.5491 |      32.225  |      32.2024 |         2308736 |          276286 |           10673 |           2595696 |        88.9448 |        10.644  |       0.411181 |              51268 |            47586 |          1.07738 |                 1.6 |           4802 |          274182 |       1.75139 |             2.2 |      5348119 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |
@@ -52,3 +48,47 @@ At this point, the data being loaded has all the columns and observations in the
 # Univariate Analysis
 
 ## Power Outages by Region
+
+<iframe src="assets/plot_univar_1.html" width=800 height=600 frameBorder=0></iframe>
+
+### Explanation of Graph: 'Power Outages by Region'
+This is a graph displaying the distributions of power outages within climate regions in the U.S. 
+
+It is evident that the Northeast region has the highest number of power outages, totaling 350, while the West North Central region has the least, with fewer than 20 outages. For the most part, the other regions fall between 100 to 250 outages.
+
+## Power Outages by Month
+
+<iframe src="assets/plot_univar_2.html" width=800 height=600 frameBorder=0></iframe>
+
+# Bivariate Analysis
+
+## State Proportions of Customers
+
+<iframe src="assets/plot_bivar_1.html" width=800 height=600 frameBorder=0></iframe>
+
+### Explanation of Graph: 'State Proportions of Customers'
+This graph displays the proportion of customers to the population mean over the years of each state.
+
+There isn't particularly any state that is a significant outlier. Hawaii and Maine have a small customer base while Maine has a surprising amount. 
+
+# Interesting Aggregates
+
+## Mean Price vs Mean Customers per State
+
+<iframe src="assets/plot_agg_1.html" width=800 height=600 frameBorder=0></iframe>
+
+### Explanation of Graph: 'Mean Price vs Mean Customers per State'
+'Mean Price vs Mean Customers per State' reveals the outliers of data set. Hawaii is outlandishly expensive despite have a small number of customers. California has a massively large customer base. 
+
+# Assessment of Missingness
+
+## NMAR Analysis
+Column that we think is NMAR: ``CAUSE.CATEGORY.DETAIL``
+
+``CAUSE.CATEGORY.DETAIL`` is a detailed description of the event categories causing the major power outages. It is NMAR because the cause doesnt fit in one of the limited categories due to being a multitude of causes. To possibly collect more data to make it MAR, we can have someone present at the site of the power outage and provide detailed observations of everything going on there. From this text, we can parse it for observations previously present in CAUSE.CATEGORY.DETAIL and count the number of unique observations we see. If the missing is correlated to higher counts of these occurrences, we can say that ``CAUSE.CATEGORY.DETAIL`` is MAR due to not being able to put a certain outage in a single category.
+
+
+ 
+
+
+
