@@ -1,7 +1,11 @@
+# wow lol what
+
 
 dskjfkshfkjsdhfkjsdh
 # US_Power_Outages
 Data Analysis of US Power Outages for UCSD DSC80 Project
+
+Nathan Ko, Walter Wong
 
 
 OH NO the power is out i cant see
