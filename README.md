@@ -138,3 +138,15 @@ Since the p-value above is significantly less than the significance level of 5%,
 
 
 
+
+
+
+| U.S._STATE   |   YEAR |   MONTH |   CUSTOMERS.AFFECTED | CLIMATE.REGION     |   DEMAND.LOSS.MW |   TOTAL.PRICE |   TOTAL.CUSTOMERS |   POPULATION |
+|:-------------|-------:|--------:|---------------------:|:-------------------|-----------------:|--------------:|------------------:|-------------:|
+| Minnesota    |   2011 |       7 |                70000 | East North Central |              nan |          9.28 |           2595696 |      5348119 |
+| Minnesota    |   2014 |       5 |                  nan | East North Central |              nan |          9.28 |           2640737 |      5457125 |
+| Minnesota    |   2010 |      10 |                70000 | East North Central |              nan |          8.15 |           2586905 |      5310903 |
+| Minnesota    |   2012 |       6 |                68200 | East North Central |              nan |          9.19 |           2606813 |      5380443 |
+| Minnesota    |   2015 |       7 |               250000 | East North Central |              250 |         10.43 |           2673531 |      5489594 |
+
+
